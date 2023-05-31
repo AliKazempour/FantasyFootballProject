@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Programing\\Ali_C#\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {}
+    "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {}
   },
   "projects": {
-    "E:\\Programing\\Ali_C#\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {
+    "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Programing\\Ali_C#\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+        "projectUniqueName": "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
         "projectName": "FantasyFootballProject",
-        "projectPath": "E:\\Programing\\Ali_C#\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
-        "packagesPath": "C:\\Users\\ASUS.PIESC\\.nuget\\packages\\",
-        "outputPath": "E:\\Programing\\Ali_C#\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
+        "projectPath": "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS.PIESC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,6 +39,18 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0-preview.4.23259.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.0-preview.4.23259.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
