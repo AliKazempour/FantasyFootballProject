@@ -1,4 +1,8 @@
-﻿namespace FantasyFootballProject.Presention
+﻿using FantasyFootballProject;
+using System.Text.RegularExpressions;
+using FantasyFootballProject.Logic;
+
+namespace FantasyFootballProject.Presention
 {
     class Program
     {
@@ -7,9 +11,10 @@
             var builder = WebApplication.CreateBuilder(args);
             var app = builder.Build();
 
-            app.MapGet("/", () => "Hello World!");
+            app.MapPost("/user/signup/", logic.addMemberApi);
+            app.MapPost("/user/veritification/", logic.vertification);
 
-            app.Run();
+            app.Run("http://localhost:7171");
         }
     }
 }
