@@ -87,13 +87,14 @@ public class logic
             return true;
         }
 
-        public static string Verification(string email,string otp)
+        public record verify_user(string email, string otp);
+        public static string Verification(verify_user user)
         {
             using (var db = new Database())
             {
                 foreach (var userOtpCode in db.Users)
                 {
-                    if (userOtpCode.Email==email && otp==userOtpCode.UserOTP)
+                    if (userOtpCode.Email==user.email && user.otp==userOtpCode.UserOTP)
                     {
                         userOtpCode.verified = true;
                         db.SaveChanges();
