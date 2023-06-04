@@ -26,14 +26,18 @@ namespace FantasyFootballProject.DataBase
 
         [Required] public string Password { get; set; }
         public string UserOTP { get; set; }
-        public User(string name, string family,string email, string password, string username, string otp)
+        [Required] public bool verified { get; set; }
+
+
+        public User(string name, string family,string email, string password, string username, string otp="")
         {
             this.Name = name;
             this.Family = family;
             this.Password = password;
             this.Username = username;
-            this.UserOTP ="";
+            this.UserOTP =otp;
             this.Email = email;
+            this.verified = false;
         }
         public User() { }
 

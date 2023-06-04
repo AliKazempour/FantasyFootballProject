@@ -6,7 +6,7 @@ namespace FantasyFootballProject.Logic;
 
 public class logic
 {
-    public static Object addMemberApi(User user)
+    public static Object AddMemberApi(User user)
         {
             using (var db = new Database())
             {
@@ -24,8 +24,8 @@ public class logic
                     {
                         try
                         {
-                            string OTP = send(user.Email);
-                            User u1 = new User(user.Name,user.Family,user.Email,user.Password,user.Username,user.UserOTP);
+                            string otp = SendMail(user.Email);
+                            User u1 = new User(user.Name,user.Family,user.Email,user.Password,user.Username,otp);
                             db.Users.Add(u1);
                             db.SaveChanges();
                         }
@@ -55,7 +55,7 @@ public class logic
         {
             try
             {
-                var addr = new System.Net.Mail.MailAddress(email);
+                var addr = new MailAddress(email);
                 return addr.Address == email;
             }
             catch
@@ -68,7 +68,7 @@ public class logic
         public static bool IsValidPassword(string password)
         {
             string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
-            return System.Text.RegularExpressions.Regex.IsMatch(password, pattern);
+            return Regex.IsMatch(password, pattern);
         }
 
         //// Validate username
@@ -87,41 +87,34 @@ public class logic
             return true;
         }
 
-        public static string vertification(string name,string family,string email,string username,string password,string OTP)
+        public static string Verification(string email,string otp)
         {
             using (var db = new Database())
             {
                 foreach (var userOtpCode in db.Users)
                 {
-                    if (userOtpCode.Email==email && OTP==userOtpCode.UserOTP)
+                    if (userOtpCode.Email==email && otp==userOtpCode.UserOTP)
                     {
-                        User u1 = new User();
-                        u1.Name = userOtpCode.Name;
-                        u1.Family = userOtpCode.Family;
-                        u1.Email = userOtpCode.Email;
-                        u1.Username = userOtpCode.Username;
-                        u1.Password = userOtpCode.Password;
-                        u1.UserOTP = userOtpCode.UserOTP;
-                        db.Add(u1);
+                        userOtpCode.verified = true;
                         db.SaveChanges();
-                        return "Your veritify is complete";
+                        return "Your verification is complete";
                     }
                 }
 
                 return "please input correct code !!!";
             }
         }
-        public static string send(string email)
+        public static string SendMail(string email)
         {
             using (MailMessage mail = new MailMessage())
             {
-                Random newrand = new Random();
-                int securityPassword = newrand.Next(100000, 1000000);
+                var newRand = new Random();
+                var securityPassword = newRand.Next(100000, 1000000);
                 mail.From = new MailAddress("Alikazempoor83@gmail.com");
                 mail.To.Add(Convert.ToString(email));
                 mail.Subject = "test send mail";
                 mail.Body = $"Hello!Welcome to FootBall Fantasy {Convert.ToString(securityPassword)}";
-                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                using (var smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
                     smtp.Credentials = new System.Net.NetworkCredential("Alikazempoor83@gmail.com", "torhhjolaelihrxa");
                     smtp.EnableSsl = true;
