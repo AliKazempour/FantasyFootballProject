@@ -33,7 +33,9 @@ namespace FantasyFootballProject.Migrations
                     Family = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     Password = table.Column<string>(type: "TEXT", nullable: false),
-                    verified = table.Column<bool>(type: "INTEGER", nullable: false)
+                    verified = table.Column<bool>(type: "INTEGER", nullable: false),
+                    score = table.Column<double>(type: "REAL", nullable: false),
+                    money = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {

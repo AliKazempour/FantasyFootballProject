@@ -1,6 +1,7 @@
 ﻿using FantasyFootballProject;
 using System.Text.RegularExpressions;
 using FantasyFootballProject.Logic;
+using FantasyFootballProject.Business;
 
 namespace FantasyFootballProject.Presention
 {
@@ -11,8 +12,9 @@ namespace FantasyFootballProject.Presention
             var builder = WebApplication.CreateBuilder(args);
             var app = builder.Build();
 
-            app.MapPost("/user/signup/", Logic.logic.AddMemberApi);
-            app.MapPost("/user/veritification/", Logic.logic.Verification);
+            app.MapPost("/user/signup/", logic.AddMemberApi);
+            app.MapPost("/user/veritification/", memberLogic.Verification);
+            app.MapGet("/user/login/", Token.LogIn);
 
             app.Run("http://localhost:7171");
         }

@@ -7,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using FantasyFootballProject.DataBase;
+using FantasyFootballProject.Data_Access;
 using System.Text;
 
 
@@ -16,19 +17,14 @@ public class Token
 {
     public static Object LogIn(string password, string username)
     {
-        using (var db = new Database())
+        if (Handle_member_data.checkUser(username, password))
         {
-            foreach (var members in db.Users)
-            {
-                if (members.Username == username && members.Password == password)
-                {
-                    return generateToken(username);
-                    /*return "Welcome to FootballFantasi\n";//+//token;*/
-                }
-            }
-            return "Your username or password is wrong!!!";
+            return generateToken(username);
         }
+
+        return "Your username or password is wrong!!!";
     }
+
     public static string generateToken(string userName)
     {
         var securityKey =
@@ -47,8 +43,8 @@ public class Token
         );
         var stringToken = new JwtSecurityTokenHandler().WriteToken(token);
         return stringToken;
-
     }
+
     public static string decodeToken(string Token)
     {
         var handler = new JwtSecurityTokenHandler();

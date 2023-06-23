@@ -15,7 +15,7 @@ namespace FantasyFootballProject.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.0-preview.4.23259.3");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.0-preview.5.23280.1");
 
             modelBuilder.Entity("FantasyFootballProject.DataBase.User", b =>
                 {
@@ -37,6 +37,12 @@ namespace FantasyFootballProject.Migrations
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<double>("money")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("score")
+                        .HasColumnType("REAL");
 
                     b.Property<bool>("verified")
                         .HasColumnType("INTEGER");
