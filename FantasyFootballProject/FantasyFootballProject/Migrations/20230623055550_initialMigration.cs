@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -11,6 +12,19 @@ namespace FantasyFootballProject.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "temp_users",
+                columns: table => new
+                {
+                    username = table.Column<string>(type: "TEXT", nullable: false),
+                    code = table.Column<string>(type: "TEXT", nullable: false),
+                    time = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_temp_users", x => x.username);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -18,27 +32,14 @@ namespace FantasyFootballProject.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Family = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
-                    Password = table.Column<string>(type: "TEXT", nullable: false)
+                    Password = table.Column<string>(type: "TEXT", nullable: false),
+                    verified = table.Column<bool>(type: "INTEGER", nullable: false),
+                    score = table.Column<double>(type: "REAL", nullable: false),
+                    money = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Username);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UsersOTP",
-                columns: table => new
-                {
-                    Username = table.Column<string>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Family = table.Column<string>(type: "TEXT", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: false),
-                    Password = table.Column<string>(type: "TEXT", nullable: false),
-                    OTP = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UsersOTP", x => x.Username);
                 });
         }
 
@@ -46,10 +47,10 @@ namespace FantasyFootballProject.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "temp_users");
 
             migrationBuilder.DropTable(
-                name: "UsersOTP");
+                name: "Users");
         }
     }
 }

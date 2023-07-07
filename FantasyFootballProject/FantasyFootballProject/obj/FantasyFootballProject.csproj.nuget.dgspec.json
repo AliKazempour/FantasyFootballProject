@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {}
+    "C:\\Users\\ASUS.PIESC\\Desktop\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {}
   },
   "projects": {
-    "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {
+    "C:\\Users\\ASUS.PIESC\\Desktop\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS.PIESC\\Desktop\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
         "projectName": "FantasyFootballProject",
-        "projectPath": "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\uni\\term2\\ta ap\\term project\\api\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
+        "projectPath": "C:\\Users\\ASUS.PIESC\\Desktop\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+        "packagesPath": "C:\\Users\\ASUS.PIESC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS.PIESC\\Desktop\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS.PIESC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,11 +49,19 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0-preview.4.23259.3, )"
+              "version": "[8.0.0-preview.5.23280.1, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[8.0.0-preview.4.23259.3, )"
+              "version": "[8.0.0-preview.5.23280.1, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.31.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.31.0, )"
             }
           },
           "imports": [
@@ -70,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
