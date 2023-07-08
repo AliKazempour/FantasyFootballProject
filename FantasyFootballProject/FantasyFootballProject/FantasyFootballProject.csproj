@@ -13,6 +13,8 @@
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0-preview.5.23280.1" />
       <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.31.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="ServiceStack.Text" Version="6.9.0" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
     </ItemGroup>
 

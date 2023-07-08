@@ -36,5 +36,15 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.Any((u => u.Username == username && u.Password == password));
             }
         }
+
+        public static void editUser(User user)
+        {
+            using (var db = new Database())
+            {
+                var record = db.Users.FirstOrDefault(user => user.Username == user.Username);
+                record = user;
+                db.SaveChanges();
+            }
+        }
     }
 }

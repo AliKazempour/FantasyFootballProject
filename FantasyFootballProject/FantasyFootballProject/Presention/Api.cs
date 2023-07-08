@@ -15,6 +15,7 @@ namespace FantasyFootballProject.Presention
             app.MapPost("/user/signup/", logic.AddMemberApi);
             app.MapPost("/user/veritification/", memberLogic.Verification);
             app.MapGet("/user/login/", Token.LogIn);
+            app.MapPost("/user/addPlayer/", logic.AddPlayer);
 
             app.Run("http://localhost:7171");
         }
