@@ -11,45 +11,45 @@ using FantasyFootballProject.Data_Access;
 using System.Text;
 
 
-namespace FantasyFootballProject.Business;
-
-public class Token
+namespace FantasyFootballProject.Business
 {
-    public static Object LogIn(string password, string username)
+    public class Token
     {
-        if (Handle_member_data.checkUser(username, password))
+        public static Object LogIn(string password, string username)
         {
-            return generateToken(username);
+            if (Handle_member_data.checkUser(username, password))
+            {
+                return generateToken(username);
+            }
+            return "Your username or password is wrong!!!";
         }
-
-        return "Your username or password is wrong!!!";
-    }
-
-    public static string generateToken(string userName)
-    {
-        var securityKey =
-            new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Your Friendly Neighborhood Spiderman"));
-        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-        var claims = new[]
+        public static string generateToken(string userName)
         {
-            new Claim("UserName", userName),
-        };
-        var token = new JwtSecurityToken(
-            issuer: "http://localhost:5231",
-            audience: "http://localhost:5231",
-            claims,
-            expires: DateTime.Now.AddSeconds(1),
-            signingCredentials: credentials
-        );
-        var stringToken = new JwtSecurityTokenHandler().WriteToken(token);
-        return stringToken;
-    }
+            var securityKey =
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Your Friendly Neighborhood Spiderman"));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var claims = new[]
+            {
+                new Claim("UserName", userName),
+            };
+            var token = new JwtSecurityToken(
+                issuer: "http://localhost:7096",
+                audience: "http://localhost:7096",
+                claims,
+                expires: DateTime.Now.AddSeconds(1),
+                signingCredentials: credentials
+            );
+            var stringToken = new JwtSecurityTokenHandler().WriteToken(token);
+            return stringToken;
 
-    public static string decodeToken(string Token)
-    {
-        var handler = new JwtSecurityTokenHandler();
-        var jsonToken = handler.ReadJwtToken(Token);
-        var x = jsonToken.Claims.First(claim => claim.Type == "UserName").Value;
-        return x;
+        }
+        public static string decodeToken(string Token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jsonToken = handler.ReadJwtToken(Token);
+            var x = jsonToken.Claims.First(claim => claim.Type == "UserName").Value;
+            return x;
+        }
     }
 }
+

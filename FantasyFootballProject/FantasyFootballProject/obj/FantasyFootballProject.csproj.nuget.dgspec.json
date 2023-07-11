@@ -57,11 +57,15 @@
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
-              "version": "[6.31.0, )"
+              "version": "[7.0.0-preview, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "RestSharp.Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[1.5.1, )"
             },
             "ServiceStack.Text": {
               "target": "Package",
@@ -69,7 +73,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.31.0, )"
+              "version": "[7.0.0-preview, )"
             }
           },
           "imports": [

@@ -12,12 +12,10 @@ namespace FantasyFootballProject.Data_Access
                 {
                     db.players.Remove(p);
                 }
-
                 foreach (var p in players)
                 {
                     db.players.Add(p);
                 }
-
                 db.SaveChanges();
             }
         }

@@ -3,42 +3,44 @@ using System.Net.Mail;
 using System.Text.RegularExpressions;
 using FantasyFootballProject.Business;
 using FantasyFootballProject.Data_Access;
+using FantasyFootballProject.Logic;
 
-namespace FantasyFootballProject.Logic;
-
-public class logic
+namespace FantasyFootballProject.Logic
 {
-    public static Object AddMemberApi(User user)
+    public class logic
     {
-        try
+        public static Object AddMemberApi(User user)
         {
-            memberLogic.addMember(user);
+            try
+            {
+                memberLogic.addMember(user);
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+            Object response = new
+            {
+                message = "Member successful added",
+            };
+            return response;
         }
-        catch (Exception ex)
+        public static string AddPlayer(string token, Player player)
         {
-            return ex.ToString();
+            User user =memberLogic.getUserByToken(token);
+            user.team.AddPlayer(player, user.money);
+            user.money -= player.now_cost;
+            Handle_member_data.editUser(user);
+            return "Player added to team";
         }
-
-        Object response = new
+        public static string DeletePlayer(string token, Player player)
         {
-            message = "Member successful added",
-        };
-        return response;
-    }
-
-    public static string AddPlayer(User user, Player player)
-    {
-        user.team.AddPlayer(player, user.money);
-        user.money -= player.now_cost;
-        Handle_member_data.editUser(user);
-        return "Player added to team";
-    }
-
-    public static string DeletePlayer(User user, Player player)
-    {
-        user.team.deletePlayer(player);
-        user.money += player.now_cost;
-        Handle_member_data.editUser(user);
-        return "Player removed from team";
+            User user = memberLogic.getUserByToken(token);
+            user.team.deletePlayer(player);
+            user.money += player.now_cost;
+            Handle_member_data.editUser(user);
+            return "Player removed from team";
+        }
     }
 }
+

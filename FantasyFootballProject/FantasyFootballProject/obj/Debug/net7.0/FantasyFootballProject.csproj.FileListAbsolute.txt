@@ -303,3 +303,7 @@ C:\Users\ASUS.PIESC\Desktop\shahedfantasyfootballproject\FantasyFootballProject\
 C:\Users\ASUS.PIESC\Desktop\shahedfantasyfootballproject\FantasyFootballProject\FantasyFootballProject\obj\Debug\net7.0\FantasyFootballProject.pdb
 C:\Users\ASUS.PIESC\Desktop\shahedfantasyfootballproject\FantasyFootballProject\FantasyFootballProject\obj\Debug\net7.0\FantasyFootballProject.genruntimeconfig.cache
 C:\Users\ASUS.PIESC\Desktop\shahedfantasyfootballproject\FantasyFootballProject\FantasyFootballProject\obj\Debug\net7.0\ref\FantasyFootballProject.dll
+C:\Users\ASUS.PIESC\Desktop\shahedfantasyfootballproject\FantasyFootballProject\FantasyFootballProject\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\ASUS.PIESC\Desktop\shahedfantasyfootballproject\FantasyFootballProject\FantasyFootballProject\bin\Debug\net7.0\RestSharp.dll
+C:\Users\ASUS.PIESC\Desktop\shahedfantasyfootballproject\FantasyFootballProject\FantasyFootballProject\bin\Debug\net7.0\RestSharp.Serializers.Newtonsoft.Json.dll
+C:\Users\ASUS.PIESC\Desktop\shahedfantasyfootballproject\FantasyFootballProject\FantasyFootballProject\bin\Debug\net7.0\ServiceStack.Text.dll

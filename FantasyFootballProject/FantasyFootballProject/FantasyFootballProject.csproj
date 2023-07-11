@@ -12,10 +12,11 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0-preview.5.23280.1" />
-      <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.31.0" />
+      <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.0.0-preview" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="RestSharp.Newtonsoft.Json" Version="1.5.1" />
       <PackageReference Include="ServiceStack.Text" Version="6.9.0" />
-      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.0-preview" />
     </ItemGroup>
 
 </Project>

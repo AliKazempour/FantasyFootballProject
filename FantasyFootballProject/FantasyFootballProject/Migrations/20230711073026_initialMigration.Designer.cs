@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FantasyFootballProject.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20230708164539_initialMigration")]
+    [Migration("20230711073026_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
