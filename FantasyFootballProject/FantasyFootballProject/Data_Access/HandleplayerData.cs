@@ -36,6 +36,31 @@ namespace FantasyFootballProject.Data_Access
             return result;
         }
 
+        public static List<Object>
+            inRangePlayers(int lowerBound, int upperBound, bool ascending) //false --->صعودی //true-->نزولی
+        {
+            var db = new Database();
+            var filteredPlayers = db.players.Where(p => lowerBound <= p.now_cost && upperBound >= p.now_cost);
+
+            if (ascending)
+            {
+                filteredPlayers = filteredPlayers.OrderBy(p => p.now_cost);
+            }
+            else
+            {
+                filteredPlayers = filteredPlayers.OrderByDescending(p => p.now_cost);
+            }
+
+            List<Object> result = new List<Object>();
+            foreach (var p in filteredPlayers)
+            {
+                result.Add(p);
+            }
+
+            db.SaveChanges();
+            return result;
+        }
+
         public static List<Object> SortPlayersByPrice(bool ascending) //false --->صعودی //true-->نزولی
         {
             var db = new Database();
@@ -52,7 +77,8 @@ namespace FantasyFootballProject.Data_Access
             return result;
         }
 
-        public static List<Object> FilterPlayersByPosition(int position, bool ascending)  //false --->صعودی //true-->نزولی
+        public static List<Object>
+            FilterPlayersByPosition(int position, bool ascending) //false --->صعودی //true-->نزولی
         {
             var db = new Database();
             var filteredPlayers = db.players.Where(p => p.element_type.Equals(position)).ToList();
@@ -62,6 +88,7 @@ namespace FantasyFootballProject.Data_Access
             {
                 result.Add(p);
             }
+
             db.SaveChanges();
             return result;
         }

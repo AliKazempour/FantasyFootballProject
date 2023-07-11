@@ -20,7 +20,8 @@ namespace FantasyFootballProject.Presention
 
             app.MapGet("user/searchPlayer/", HandleplayerData.SearchPlayers);
             app.MapGet("user/SortPlayers/", HandleplayerData.SortPlayersByPrice);
-            app.MapGet("user/FilterPlayers/", HandleplayerData.FilterPlayersByPosition);
+            app.MapGet("user/FilterPlayersByPosition/", HandleplayerData.FilterPlayersByPosition);
+            app.MapGet("user/inrange/", HandleplayerData.inRangePlayers);
             app.MapGet("user/ShowPlayers/", HandleplayerData.ShowPlayers);
             app.MapPut("updateDataBase/", updateData.Update);
             app.Run("http://localhost:7171");

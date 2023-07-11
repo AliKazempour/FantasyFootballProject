@@ -2110,11 +2110,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\sagebimar\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+      "projectUniqueName": "D:\\uni\\term2\\ta ap\\term project\\hante\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
       "projectName": "FantasyFootballProject",
-      "projectPath": "C:\\Users\\ASUS\\Desktop\\sagebimar\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+      "projectPath": "D:\\uni\\term2\\ta ap\\term project\\hante\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Desktop\\sagebimar\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
+      "outputPath": "D:\\uni\\term2\\ta ap\\term project\\hante\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -2191,7 +2191,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\ASUS\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
