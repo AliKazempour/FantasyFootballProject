@@ -52,16 +52,16 @@ namespace FantasyFootballProject.Data_Access
             return result;
         }
 
-        public static List<Object> FilterPlayersByPosition(int position)
+        public static List<Object> FilterPlayersByPosition(int position, bool ascending)  //false --->صعودی //true-->نزولی
         {
             var db = new Database();
             var filteredPlayers = db.players.Where(p => p.element_type.Equals(position)).ToList();
+            filteredPlayers.Sort((p1, p2) => p1.now_cost.CompareTo(p2.now_cost) * (ascending ? 1 : -1));
             List<Object> result = new List<Object>();
             foreach (var p in filteredPlayers)
             {
                 result.Add(p);
             }
-
             db.SaveChanges();
             return result;
         }
