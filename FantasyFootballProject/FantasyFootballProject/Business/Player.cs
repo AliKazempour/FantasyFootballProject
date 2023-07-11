@@ -11,14 +11,9 @@ namespace FantasyFootballProject.Business
     {
         public static List<Player> GetPlayersFromFPL()
         {
-            var client = new RestClient("https://fantasy.premierleague.com");
-            var request = new RestRequest("/api/bootstrap-static/", Method.GET);
-            var response = client.Execute(request);
-            var json = response.Content;
-            var data = JsonConvert.DeserializeObject<dynamic>(json);
-            var elements = data["elements"];
-            var players = JsonConvert.DeserializeObject<List<Player>>(elements.ToString());
-            return players;
+            string url = "https://fantasy.premierleague.com/api/bootstrap-static/";
+            var response = url.GetJsonFromUrl().FromJson<FPLResponse>();
+            return response.elements;
         }
     }
 
