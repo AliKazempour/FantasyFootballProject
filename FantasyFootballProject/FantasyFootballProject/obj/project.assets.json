@@ -2105,32 +2105,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS.PIESC\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS.PIESC\\Desktop\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\hante\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
       "projectName": "FantasyFootballProject",
-      "projectPath": "C:\\Users\\ASUS.PIESC\\Desktop\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
-      "packagesPath": "C:\\Users\\ASUS.PIESC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS.PIESC\\Desktop\\shahedfantasyfootballproject\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\hante\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ASUS\\Desktop\\hante\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ASUS.PIESC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2199,7 +2191,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\ASUS\\.dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -12,39 +12,59 @@ namespace FantasyFootballProject.Data_Access
                 {
                     db.players.Remove(p);
                 }
+
                 foreach (var p in players)
                 {
                     db.players.Add(p);
                 }
+
                 db.SaveChanges();
             }
         }
 
-        public static List<Player> SearchPlayers(string searchTerm)  //--> Ghelich
+        public static List<Object> SearchPlayers(string searchTerm)
         {
             var db = new Database();
-            var filteredPlayers = db.players
-                .Where(p => p.first_name.Contains(searchTerm) || p.second_name.Contains(searchTerm)).ToList();
-            return filteredPlayers;
+            var filteredPlayers =
+                db.players.Where(p => p.first_name.Contains(searchTerm) || p.second_name.Contains(searchTerm));
+            List<Object> result = new List<Object>();
+            foreach (var p in filteredPlayers)
+            {
+                result.Add(p);
+            }
+
+            return result;
         }
 
-        public static List<Player> SortPlayersByPrice(bool ascending)   //--> Ghelich
+        public static List<Object> SortPlayersByPrice(bool ascending)
         {
             var db = new Database();
             var sortedPlayers = ascending
                 ? db.players.OrderBy(p => p.now_cost).ToList()
                 : db.players.OrderByDescending(p => p.now_cost).ToList();
-            return sortedPlayers;
+            List<Object> result = new List<Object>();
+            foreach (var p in sortedPlayers)
+            {
+                result.Add(p);
+            }
+
+            return result;
         }
 
-        public static List<Player> FilterPlayersByPosition(string position)   //-->Ghelich
+        public static List<Object> FilterPlayersByPosition(string position)
         {
             var db = new Database();
             var filteredPlayers = db.players.Where(p => p.element_type.Equals(position)).ToList();
-            return filteredPlayers;
+            List<Object> result = new List<Object>();
+            foreach (var p in filteredPlayers)
+            {
+                result.Add(p);
+            }
+
+            return result;
         }
 
-        public static List<Player> ShowPlayers(int page, int pageSize)  //-->Nourozi
+        public static List<Player> ShowPlayers(int page, int pageSize) //-->Nourozi
         {
             var db = new Database();
             var pagedPlayers = db.players.Skip((page - 1) * pageSize).Take(pageSize).ToList();
