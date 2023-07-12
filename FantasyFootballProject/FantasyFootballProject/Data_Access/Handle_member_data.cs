@@ -11,6 +11,15 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.Any(u => u.Email == email);
             }
         }
+
+        public static List<User> getUsers()
+        {
+            using (var db = new Database())
+            {
+                return db.Users.ToList();
+            }
+        }
+
         public static User getUserByUsername(string username)
         {
             using (var db = new Database())
@@ -18,6 +27,7 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.FirstOrDefault(u => u.Username == username);
             }
         }
+
         public static bool findUserByUsername(string username)
         {
             using (var db = new Database())
@@ -25,6 +35,7 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.Any((u => u.Username == username));
             }
         }
+
         public static void UserAdd(User user)
         {
             using (var db = new Database())
@@ -41,6 +52,7 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.Any((u => u.Username == username && u.Password == password));
             }
         }
+
         public static void editUser(User user)
         {
             using (var db = new Database())
@@ -48,7 +60,6 @@ namespace FantasyFootballProject.Data_Access
                 var record = db.Users.FirstOrDefault(user => user.Username == user.Username);
                 record = user;
                 db.SaveChanges();
-
             }
         }
     }

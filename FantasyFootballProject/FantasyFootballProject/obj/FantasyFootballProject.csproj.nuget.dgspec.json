@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\uni\\term2\\ta ap\\term project\\hante\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {}
+    "C:\\Users\\Mohammadhosein\\Desktop\\New folder (2)\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {}
   },
   "projects": {
-    "D:\\uni\\term2\\ta ap\\term project\\hante\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {
+    "C:\\Users\\Mohammadhosein\\Desktop\\New folder (2)\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\uni\\term2\\ta ap\\term project\\hante\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+        "projectUniqueName": "C:\\Users\\Mohammadhosein\\Desktop\\New folder (2)\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
         "projectName": "FantasyFootballProject",
-        "projectPath": "D:\\uni\\term2\\ta ap\\term project\\hante\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\uni\\term2\\ta ap\\term project\\hante\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
+        "projectPath": "C:\\Users\\Mohammadhosein\\Desktop\\New folder (2)\\FantasyFootballProject\\FantasyFootballProject\\FantasyFootballProject.csproj",
+        "packagesPath": "C:\\Users\\Mohammadhosein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mohammadhosein\\Desktop\\New folder (2)\\FantasyFootballProject\\FantasyFootballProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Mohammadhosein\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -88,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

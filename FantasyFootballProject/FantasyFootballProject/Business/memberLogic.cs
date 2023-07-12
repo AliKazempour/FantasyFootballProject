@@ -35,6 +35,7 @@ namespace FantasyFootballProject.Business
             {
                 return false;
             }
+
             Regex regex = new Regex("^[a-zA-Z0-9_-]*$");
             if (!regex.IsMatch(username))
             {
@@ -43,29 +44,30 @@ namespace FantasyFootballProject.Business
 
             return true;
         }
+
         public record verify_user(string username, string code);
 
         public static string Verification(verify_user user)
         {
-                var User = Handle_temp_user.userVerify(user);
-                var temp_user = Handle_temp_user.veifyTempUser(user);
+            var User = Handle_temp_user.userVerify(user);
+            var temp_user = Handle_temp_user.veifyTempUser(user);
 
-                if (temp_user != null)
-                {
-                    User.verified = true;
-                    Handle_temp_user.remove_tempUser(temp_user);
+            if (temp_user != null)
+            {
+                User.verified = true;
+                Handle_temp_user.remove_tempUser(temp_user);
 
-                    return "complete verify progress ";
-                }
+                return "complete verify progress ";
+            }
 
-                return "please input correct code !!!";
+            return "please input correct code !!!";
         }
+
         public static string genteratePassword()
         {
             var newRand = new Random();
             var securityPassword = newRand.Next(100000, 1000000);
             return securityPassword.ToString();
-
         }
 
 
@@ -83,10 +85,9 @@ namespace FantasyFootballProject.Business
                     smtp.EnableSsl = true;
                     smtp.Send(mail);
                 }
-
-
             }
         }
+
         public static void addMember(User user)
         {
             if (IsValidEmail(user.Email) && IsValidPassword(user.Password) && IsValidUsername(user.Username))
@@ -101,10 +102,10 @@ namespace FantasyFootballProject.Business
                 }
                 else
                 {
-
                     var code = genteratePassword();
                     SendMail(user.Email, code);
-                    tempUser tempUser1 = new tempUser { code = code, username = user.Username, time = DateTime.Now.AddMinutes(5) };
+                    tempUser tempUser1 = new tempUser
+                        { code = code, username = user.Username, time = DateTime.Now.AddMinutes(5) };
                     Handle_temp_user.tempUserAdd(tempUser1);
                     User u1 = new User(user.Name, user.Family, user.Email, user.Password, user.Username);
                     Handle_member_data.UserAdd(u1);
@@ -114,12 +115,58 @@ namespace FantasyFootballProject.Business
             {
                 throw new Exception("Error! Please fill in the required terms more carefully");
             }
-
         }
+
         public static User getUserByToken(string token)
         {
-            var username=Token.decodeToken(token);
+            var username = Token.decodeToken(token);
             return Handle_member_data.getUserByUsername(username);
+        }
+
+        public static User getUserByToken(string token)
+        {
+            var username = Token.decodeToken(token);
+            return Handle_member_data.getUserByUsername(username);
+        }
+
+        public static void ratingUsers()
+        {
+            var response = Handle_member_data.getUsers();
+            foreach (var r in response)
+            {
+                calculateScore(r);
+            }
+
+            for (int a = 1; a < response.Count - 1; a++)
+            {
+                for (int b = a + 1; b < response.Count; b++)
+                {
+                    if (response[b].score > response[a].score)
+                    {
+                        User temp;
+                        temp = response[b];
+                        response[b] = response[a];
+                        response[a] = temp;
+                    }
+                }
+            }
+        }
+
+        public static void calculateScore(User user)
+        {
+            int score = 0;
+            foreach (var v in user.team.mainTeam)
+            {
+                score += v.event_points;
+            }
+
+            foreach (var v in user.team.reserveTeam)
+            {
+                score += v.event_points;
+            }
+
+            user.score = score;
+            Handle_member_data.editUser(user);
         }
     }
 }

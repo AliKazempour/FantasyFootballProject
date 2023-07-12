@@ -93,7 +93,7 @@ namespace FantasyFootballProject.Data_Access
             return result;
         }
 
-        public static List<Player> ShowPlayers(int page, int pageSize)
+        public static List<Player> ShowPlayers(int page, int pageSize) //SadHezari
         {
             var db = new Database();
             var pagedPlayers = db.players.Skip((page - 1) * pageSize).Take(pageSize).ToList();
