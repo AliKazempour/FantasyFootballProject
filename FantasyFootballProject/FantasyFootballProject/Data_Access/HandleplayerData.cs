@@ -93,6 +93,20 @@ namespace FantasyFootballProject.Data_Access
             return result;
         }
 
+        public static List<Object> FilterPlayersByTeam(int team)
+        {
+            var db = new Database();
+            var filteredPlayers = db.players.ToList().Where(p => p.team.Equals(team));
+            List<Object> result = new List<Object>();
+            foreach (var p in filteredPlayers)
+            {
+                result.Add(p);
+            }
+
+            db.SaveChanges();
+            return result;
+        }
+
         public static List<Player> ShowPlayers(int page, int pageSize) //SadHezari
         {
             var db = new Database();
