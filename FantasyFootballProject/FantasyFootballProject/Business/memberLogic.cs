@@ -7,7 +7,7 @@ namespace FantasyFootballProject.Business
 {
     public class memberLogic
     {
-        // Validate email address
+                // Validate email address
         public static bool IsValidEmail(string email)
         {
             try
@@ -47,18 +47,18 @@ namespace FantasyFootballProject.Business
 
         public static string Verification(verify_user user)
         {
-                var User = Handle_temp_user.userVerify(user);
-                var temp_user = Handle_temp_user.veifyTempUser(user);
+            var User = Handle_temp_user.userVerify(user);
+            var temp_user = Handle_temp_user.veifyTempUser(user);
 
-                if (temp_user != null)
-                {
-                    User.verified = true;
-                    Handle_temp_user.remove_tempUser(temp_user);
+            if (temp_user != null)
+            {
+                User.verified = true;
+                Handle_temp_user.remove_tempUser(temp_user);
 
-                    return "complete verify progress ";
-                }
+                return "complete verify progress ";
+            }
 
-                return "please input correct code !!!";
+            return "please input correct code !!!";
         }
         public static string genteratePassword()
         {
@@ -118,8 +118,45 @@ namespace FantasyFootballProject.Business
         }
         public static User getUserByToken(string token)
         {
-            var username=Token.decodeToken(token);
+            var username = Token.decodeToken(token);
             return Handle_member_data.getUserByUsername(username);
+        }
+        public static void ratingUsers()
+        {
+            var response = Handle_member_data.getUsers();
+            foreach(var r in response)
+            {
+                calculateScore(r);
+            }
+            for (int a = 1; a < response.Count - 1; a++)
+            {
+                for (int b = a + 1; b < response.Count; b++)
+                {
+                    if (response[b].score > response[a].score)
+                    {
+                        User temp;
+                        temp = response[b];
+                        response[b] = response[a];
+                        response[a] = temp;
+                    }
+                }
+            }
+
+        }
+        public static void calculateScore(User user)
+        {
+            int score=0;
+            foreach(var v in user.team.mainTeam)
+            {
+                score+=v.event_points;
+            }
+            foreach(var v in user.team.reserveTeam)
+            {
+                score += v.event_points;
+            }
+            user.score = score;
+            Handle_member_data.editUser(user);
+
         }
     }
 }
