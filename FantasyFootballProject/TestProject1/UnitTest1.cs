@@ -20,6 +20,30 @@ namespace TestProject1
             Assert.IsTrue(isValid1);
             Assert.IsFalse(isValid2);
         }
+        [TestMethod]
+        public void IsValidEmail_ValidEmail_ReturnsTrue()
+        {
+            // Arrange
+            string email = "example@example.com";
+
+            // Act
+            bool result = IsValidEmail(email);
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void IsValidEmail_InvalidEmail_ReturnsFalse()
+        {
+            // Arrange
+            string email = "invalidemail";
+
+            // Act
+            bool result = IsValidEmail(email);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
     }
 }
 
