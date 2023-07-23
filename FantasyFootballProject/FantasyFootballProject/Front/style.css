@@ -39,3 +39,41 @@ form label {
     font-weight: 500;
     margin-bottom: 10px;
 }
+
+form input[type="text"],
+form input[type="username"],
+form input[type="email"],
+form input[type="password"] {
+    border: none;
+    background: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+form input[type="submit"] {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background: #3e8e41;
+}
+
+.hidden {
+    display: none;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: #4CAF50;
+}
