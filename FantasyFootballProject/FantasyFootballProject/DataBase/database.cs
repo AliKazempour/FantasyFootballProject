@@ -8,6 +8,7 @@ namespace FantasyFootballProject.DataBase
         public DbSet<User> Users { get; set; }
         public DbSet<tempUser> temp_users { get; set; }
         public DbSet<Player> players { get; set; }
+        public DbSet<team> teams { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder contextOptionsBuilder)
         {
@@ -32,16 +33,23 @@ namespace FantasyFootballProject.DataBase
         public List<Player> elements { get; set; }
     }
 
+    public class team
+    {
+        [Key] public int id { get; set; }
+        public string username { get; set; }
+        public int playerId { get; set; }
+
+        public int playerStatus { get; set; }
+    }
+
+
     public class Team
     {
-        [Key] public int teamCode { get; set; }
-        public List<Player> mainTeam { get; set; }
-        public List<Player> reserveTeam { get; set; }
-
-
-        public void AddPlayer(Player player, int budget)
+        public static void AddPlayer(Player player, int budget, string username)
         {
             int counter = 0;
+            List<Player> mainTeam = Data_Access.Handle_member_data.mainteam(username);
+            List<Player> reserveTeam = Data_Access.Handle_member_data.reserveTeam(username);
             foreach (Player p in mainTeam)
             {
                 if (player.team == p.team)
@@ -97,8 +105,10 @@ namespace FantasyFootballProject.DataBase
             mainTeam.Add(player);
         }
 
-        public void deletePlayer(Player player)
+        public static void deletePlayer(Player player, string username)
         {
+            List<Player> mainTeam = Data_Access.Handle_member_data.mainteam(username);
+            List<Player> reserveTeam = Data_Access.Handle_member_data.reserveTeam(username);
             foreach (Player p in mainTeam)
             {
                 if (p == player)
@@ -132,10 +142,6 @@ namespace FantasyFootballProject.DataBase
         public double score { get; set; }
         public int money { get; set; }
 
-        public Team team { get; set; }
-        ICollection<User> players { get; set; }
-        ICollection<User> followers { get; set; }
-
         public User(string name, string family, string email, string password, string username)
         {
             this.Name = name;
@@ -146,8 +152,6 @@ namespace FantasyFootballProject.DataBase
             this.verified = false;
             this.score = 0;
             this.money = 1000;
-            this.players = null;
-            this.followers = null;
         }
 
         public User()
@@ -157,7 +161,8 @@ namespace FantasyFootballProject.DataBase
 
     public class tempUser
     {
-        [Key] public string username { get; set; }
+        [Key] public int Id { get; set; }
+        [Required] public string username { get; set; }
         [Required] public string code { get; set; }
         [Required] public DateTime time { get; set; }
     }
