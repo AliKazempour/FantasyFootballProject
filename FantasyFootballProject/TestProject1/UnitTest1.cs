@@ -44,6 +44,24 @@ namespace TestProject1
             // Assert
             Assert.IsFalse(result);
         }
+        [TestMethod]
+        public void TestIsValidUsername()
+        {
+            // Arrange
+            string validUsername = "john_doe1";
+            string invalidUsername1 = "a";
+            string invalidUsername2 = "abcdefghijklmnopqrstuvwxyz1";
+
+            // Act
+            bool isValid1 = IsValidUsername(validUsername);
+            bool isValid2 = IsValidUsername(invalidUsername1);
+            bool isValid3 = IsValidUsername(invalidUsername2);
+
+            // Assert
+            Assert.IsTrue(isValid1);
+            Assert.IsFalse(isValid2);
+            Assert.IsFalse(isValid3);
+        }
     }
 }
 
