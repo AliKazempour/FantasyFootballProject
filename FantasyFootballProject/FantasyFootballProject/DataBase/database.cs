@@ -47,7 +47,7 @@ namespace FantasyFootballProject.DataBase
     {
         public static void AddPlayer(Player player, int budget, string username)
         {
-            int counter = 0;
+            int counter = 1;
             List<Player> mainTeam = Data_Access.Handle_member_data.mainteam(username);
             List<Player> reserveTeam = Data_Access.Handle_member_data.reserveTeam(username);
             foreach (Player p in mainTeam)
