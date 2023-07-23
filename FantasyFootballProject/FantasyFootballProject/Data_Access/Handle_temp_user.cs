@@ -22,7 +22,16 @@ namespace FantasyFootballProject.Data_Access
                 return User;
             }
         }
-
+        public static void setVerifyFieldTrue(memberLogic.verify_user user)
+        {
+            using (var db = new Database())
+            {
+                var User = db.Users.FirstOrDefault(User => User.Username == user.username);
+                User.verified = true;
+                db.Users.Update(User);
+                db.SaveChanges();
+            }
+        }
         public static tempUser veifyTempUser(memberLogic.verify_user user)
         {
             using (var db = new Database())

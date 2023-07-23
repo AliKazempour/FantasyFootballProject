@@ -25,7 +25,7 @@ namespace FantasyFootballProject.Presention
             app.MapGet("user/FilterPlayersByTeam/", HandleplayerData.FilterPlayersByTeam);
             app.MapGet("user/ShowPlayers/", HandleplayerData.ShowPlayers);
             app.MapPut("updateDataBase/", updateData.Update);
-            app.Run("http://localhost:7171");
+            app.Run("http://localhost:5231");
         }
     }
 }
