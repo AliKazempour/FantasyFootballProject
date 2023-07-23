@@ -55,9 +55,9 @@ namespace FantasyFootballProject.Business
 
             if (temp_user != null)
             {
-                User.verified = true;
+                Handle_temp_user.setVerifyFieldTrue(user);
                 Handle_temp_user.remove_tempUser(temp_user);
-
+                
                 return "complete verify progress ";
             }
 

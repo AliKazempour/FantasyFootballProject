@@ -11,6 +11,7 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.Any(u => u.Email == email);
             }
         }
+
         public static List<User> getUsers()
         {
             using (var db = new Database())
@@ -18,6 +19,7 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.ToList();
             }
         }
+
         public static User getUserByUsername(string username)
         {
             using (var db = new Database())
@@ -25,6 +27,7 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.FirstOrDefault(u => u.Username == username);
             }
         }
+
         public static bool findUserByUsername(string username)
         {
             using (var db = new Database())
@@ -32,6 +35,7 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.Any((u => u.Username == username));
             }
         }
+
         public static void UserAdd(User user)
         {
             using (var db = new Database())
@@ -48,16 +52,21 @@ namespace FantasyFootballProject.Data_Access
                 return db.Users.Any((u => u.Username == username && u.Password == password));
             }
         }
+
         public static void editUser(User user)
         {
             using (var db = new Database())
             {
-                var record = db.Users.FirstOrDefault(user => user.Username == user.Username);
-                record = user;
-                db.SaveChanges();
-
+                var record = db.Users.FirstOrDefault(u => u.Username == user.Username);
+                if (record != null)
+                {
+                    record.money = user.money;
+                    db.Users.Update(record);
+                    db.SaveChanges();
+                }
             }
         }
+
         public static Player GetPlayerBYId(int id)
         {
             using (var db = new Database())
@@ -69,9 +78,11 @@ namespace FantasyFootballProject.Data_Access
                         return b;
                     }
                 }
+
                 return new Player();
             }
         }
+
         public static List<Player> mainteam(string username)
         {
             List<Player> mainTeam = new List<Player>();
@@ -87,10 +98,11 @@ namespace FantasyFootballProject.Data_Access
                         }
                     }
                 }
+
                 return mainTeam;
             }
-
         }
+
         public static List<Player> reserveTeam(string username)
         {
             List<Player> reserveTeam = new List<Player>();
@@ -106,10 +118,9 @@ namespace FantasyFootballProject.Data_Access
                         }
                     }
                 }
+
                 return reserveTeam;
             }
-
         }
-
     }
 }

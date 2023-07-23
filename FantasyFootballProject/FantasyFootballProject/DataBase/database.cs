@@ -66,6 +66,20 @@ namespace FantasyFootballProject.DataBase
                 }
             }
 
+            using (var db = new Database())
+            {
+                foreach (var t in db.teams)
+                {
+                    if (t.username == username)
+                    {
+                        if (t.playerId==player.id)
+                        {
+                            throw new Exception("You have this player!!");
+                        }
+                    }
+                }
+
+            }
             if (counter > 3)
             {
                 throw new Exception("Can't select more than 3 players from the same team.");
@@ -102,7 +116,15 @@ namespace FantasyFootballProject.DataBase
                 return;
             }
 
-            mainTeam.Add(player);
+            using (var db = new Database())
+            {
+                team t = new team();
+                t.username = username;
+                t.playerId = player.id;
+                t.playerStatus = 1;
+                db.teams.Add(t);
+                db.SaveChanges();
+            }
         }
 
         public static void deletePlayer(Player player, string username)
@@ -123,6 +145,21 @@ namespace FantasyFootballProject.DataBase
                 {
                     reserveTeam.Remove(p);
                 }
+            }
+            using (var db = new Database())
+            {
+                foreach (var t in db.teams)
+                {
+                    if (t.username == username)
+                    {
+                        if (t.playerId==player.id)
+                        {
+                            db.teams.Remove(t);
+                            db.SaveChanges();
+                        }
+                    }
+                }
+
             }
         }
     }
